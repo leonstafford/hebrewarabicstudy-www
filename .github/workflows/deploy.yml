@@ -13,7 +13,7 @@ jobs:
       SFTP_PORT: ${{ secrets.SFTP_PORT }}
       SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
     steps:
-      run: |
+      - run: |
         git submodule update --init
         export THEME_NAME=accessible-minimalism-wordpress-theme
         lftp --password "$SFTP_PASSWORD" \
