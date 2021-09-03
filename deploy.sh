@@ -2,8 +2,8 @@
 
 # deploys latest theme and plugin to HebrewArabic.study
 
-# pull latest submodules
-git pull --ff-only --recurse-submodules
+# update submodules to latest
+git submodule update --recursive --remote
 
 # create deploy artifact for example.com/deploy.txt
 date > deploy.txt
