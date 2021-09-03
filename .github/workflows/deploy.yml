@@ -19,5 +19,5 @@ jobs:
       - name: Install lftp
         run: sudo apt-get install -qy lftp
       - run: git submodule update --init
-      - run: export THEME_NAME=accessible-minimalism-wordpress-theme && lftp --password "$SFTP_PASSWORD" -e "mirror -R theme/$THEME_NAME public_html/wp-contents/theme/$THEME_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
+      - run: export THEME_NAME=accessible-minimalism-wordpress-theme && lftp --password "$SFTP_PASSWORD" -e "set ssl:verify-certificate false; set sftp:auto-confirm yes; mirror -R theme/$THEME_NAME public_html/wp-contents/theme/$THEME_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
 
