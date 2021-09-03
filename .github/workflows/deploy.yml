@@ -14,6 +14,8 @@ jobs:
       SFTP_PORT: ${{ secrets.SFTP_PORT }}
       SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
       - run: git submodule update --init
       - run: export THEME_NAME=accessible-minimalism-wordpress-theme && lftp --password "$SFTP_PASSWORD" -e "mirror -R theme/$THEME_NAME public_html/wp-contents/theme/$THEME_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
 
