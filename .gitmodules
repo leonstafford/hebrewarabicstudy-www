@@ -1,0 +1,7 @@
+[submodule "plugin/hebrewarabicstudy-wp-plugin"]
+	path = plugin/hebrewarabicstudy-wp-plugin
+	url = https://github.com/leonstafford/hebrewarabicstudy-wp-plugin
+
+[submodule "theme/accessible-minimalism-wordpress-theme"]
+	path = theme/accessible-minimalism-wordpress-theme
+	url = https://github.com/leonstafford/accessible-minimalism-wordpress-theme
