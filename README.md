@@ -10,3 +10,5 @@
  - `git submodule update --init`
  - deploy
  - `sh deploy.sh`
+
+Deploys theme, plugin and a `deploy.txt` with deploy date, which is stored in the site's root.
