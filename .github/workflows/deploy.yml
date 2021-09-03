@@ -25,5 +25,5 @@ jobs:
       - run: mkdir ~/.ssh
       - run: echo "sftp.strattic.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG6/zHC5PNIHdKfljbSWuMU63lT1wj6tO8C576QpDl7D" >> ~/.ssh/known_hosts
       - run: export THEME_NAME=accessible-minimalism-wordpress-theme
-      - run: lftp -c "set sftp:auto-confirm yes;set ssl:verify-certificate no; open sftp://$SFTP_USER:$SFTP_PASSWORD@$SFTP_HOST:$SFTP_PORT; mirror -R theme/$THEME_NAME public_html/wp-contents/theme/$THEME_NAME__copied;exit"
+       - run: lftp --password "$SFTP_PASSWORD" -e "mirror -Rv theme/$THEME_NAME public_html/wp-contents/theme/$THEME_NAME_copied; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
 
