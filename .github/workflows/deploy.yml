@@ -28,6 +28,6 @@ jobs:
       - run: export THEME_NAME=accessible-minimalism-wordpress-theme
       - run: export PLUGIN_NAME=hebrewarabicstudy-wp-plugin
       - run: lftp --password "$SFTP_PASSWORD" -e "cd public_html; put deploy.txt; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
-      - run: lftp --password "$SFTP_PASSWORD" -e "mirror -R -v theme/$THEME_NAME public_html/wp-content/themes/$THEME_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
-      - run: lftp --password "$SFTP_PASSWORD" -e "mirror -R -v plugin/$PLUGIN_NAME public_html/wp-content/plugins/$PLUGIN_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
+      - run: lftp --password "$SFTP_PASSWORD" -e "mirror -R -v --transfer-all theme/$THEME_NAME public_html/wp-content/themes/$THEME_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
+      - run: lftp --password "$SFTP_PASSWORD" -e "mirror -R -v --transfer-all plugin/$PLUGIN_NAME public_html/wp-content/plugins/$PLUGIN_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
 
