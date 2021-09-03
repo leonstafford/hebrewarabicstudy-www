@@ -23,5 +23,6 @@ jobs:
       - run: echo "set ssl:verify-certificate no" >> ~/.lftp/rc
       - run: echo "set sftp:auto-confirm yes" >> ~/.lftp/rc
       - run: export THEME_NAME=accessible-minimalism-wordpress-theme
-      - run: lftp --password "$SFTP_PASSWORD" -e "mirror -Rv theme/$THEME_NAME public_html/wp-contents/theme/$THEME_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
+      - run: #lftp --password "$SFTP_PASSWORD" -e "mirror -Rv theme/$THEME_NAME public_html/wp-contents/theme/$THEME_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
+      - run: lftp -c "set sftp:auto-confirm yes;set ssl:verify-certificate no; open sftp://$SFTP_USER:$SFTP_PASSWORD@$SFTP_HOST:$SFTP_PORT; mirror -R theme/$THEME_NAME public_html/wp-contents/theme/$THEME_NAME;exit"
 
