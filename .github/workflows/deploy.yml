@@ -26,7 +26,7 @@ jobs:
       - run: echo "sftp.strattic.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG6/zHC5PNIHdKfljbSWuMU63lT1wj6tO8C576QpDl7D" >> ~/.ssh/known_hosts
       - run: export THEME_NAME=accessible-minimalism-wordpress-theme
       - run: export PLUGIN_NAME=hebrewarabicstudy-wp-plugin
+      - run: lftp --password "$SFTP_PASSWORD" -e "put deploy.txt public_html/deploy.txt; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
       - run: lftp --password "$SFTP_PASSWORD" -e "mirror -R -v theme/$THEME_NAME public_html/wp-content/themes/$THEME_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
       - run: lftp --password "$SFTP_PASSWORD" -e "mirror -R -v plugin/$PLUGIN_NAME public_html/wp-content/plugins/$PLUGIN_NAME; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
-      - run: lftp --password "$SFTP_PASSWORD" -e "put public_html/deploy.txt deploy.txt; bye" "sftp://$SFTP_USER@$SFTP_HOST:$SFTP_PORT"
 
