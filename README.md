@@ -12,3 +12,9 @@
  - `sh deploy.sh`
 
 Deploys theme, plugin and a `deploy.txt` with deploy date, which is stored in the site's root.
+
+### Roadmap
+
+ - either add excludes to lftp cmd or pre-build just the deployable files within GH action (currently includes vendor files, etc)
+ - use lftp parallelisation if possible
+ - headless JS browser to login and click publish button on Strattic 
